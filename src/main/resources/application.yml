@@ -1,0 +1,21 @@
+debug: true
+spring:
+  jpa:
+    show-sql: true
+    hibernate.ddl-auto: update
+  h2.console:
+      path: /h2-console
+      settings.web-allow-others: true 
+      enabled: true
+  datasource:
+    url: jdbc:h2:mem:test;MODE=MYSQL;DB_CLOSE_DELAY=-1
+    username: user
+    password: pw
+
+  jackson:
+    date-format: "yyyy-MM-dd HH:mm:ss"
+    joda-date-time-format: "yyyy-MM-dd HH:mm:ss"
+    time-zone: "Asia/Shanghai"
+    serialization:
+      WRITE_DATES_AS_TIMESTAMPS: false
+    default-property-inclusion: NON_NULL

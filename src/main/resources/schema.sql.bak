@@ -1,0 +1,8 @@
+create table users (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  username varchar(256),
+  password varchar(256),
+  email varchar(256),
+  enabled boolean,
+  PRIMARY KEY (`id`)
+);
