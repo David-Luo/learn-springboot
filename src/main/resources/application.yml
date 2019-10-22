@@ -19,3 +19,7 @@ spring:
     serialization:
       WRITE_DATES_AS_TIMESTAMPS: false
     default-property-inclusion: NON_NULL
+encryption:
+  privateKey: key
+    #这里可以理解成是加解密的时候使用的密钥
+  salt: abcdef

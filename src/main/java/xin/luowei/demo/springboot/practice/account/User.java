@@ -2,14 +2,15 @@ package xin.luowei.demo.springboot.practice.account;
 
 import java.time.LocalDateTime;
 
+import javax.persistence.Convert;
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.Id;
-import javax.persistence.Version;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Version;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
@@ -20,6 +21,7 @@ import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import lombok.Data;
+import xin.luowei.demo.springboot.practice.encryption.DESConverter;
 
 @Data
 @Entity
@@ -48,6 +50,7 @@ public class User {
      */
     @NotBlank(message = "密码不能为空")
     @Pattern(regexp = "^([a-zA-Z]\\w{5,17})$", message = "密码不能少于6位,至少同时包含数字和字母", groups = { OnRegister.class, OnUdatePassword.class })
+    @Convert(converter = DESConverter.class)
     private String password;
 
     /**
