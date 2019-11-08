@@ -12,7 +12,11 @@ public class RegistorService {
     @Autowired
     private UserRepository userRepository;
 
-    public User registor(User user) {
-        return userRepository.save(user);
+    public User registor(User user) throws Exception {
+        User save = userRepository.save(user);
+        if(true){
+            throw new Exception("No Rollback");
+        }
+        return save;
     }
 }

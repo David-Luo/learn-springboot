@@ -35,7 +35,7 @@ public class UserController {
     }
     
     @PostMapping("/user")
-    public Integer registor(@Validated(User.OnRegister.class) @RequestBody User user) {
+    public Integer registor(@Validated(User.OnRegister.class) @RequestBody User user) throws Exception {
         registorService.registor(user);
         return user.getId();
     }
